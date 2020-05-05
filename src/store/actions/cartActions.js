@@ -1,0 +1,9 @@
+
+export const ADD_TO_CART = 'ADD_TO_CART';
+export const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
+export const UPDATE_CART_QUANTITY = 'UPDATE_CART_QUANTITY';
+export const SET_PRICE_FILTER = "SET_PRICE_FILTER";
+export const SORT_LOW_HIGH = 'SORT_LOW_HIGH';
+export const SORT_HIGH_LOW = 'SORT_HIGH_LOW';
+export const DISCOUNT = 'DISCOUNT';
+export const SEARCH_PRODUCTS = 'SEARCH_PRODUCTS';
