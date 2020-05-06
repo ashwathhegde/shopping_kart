@@ -13,7 +13,6 @@ class ProductList extends Component {
     
    
     render() {
-        console.error("sorted", this.props)
         let data =[]
         if(this.props.filter.filterApplied){
             

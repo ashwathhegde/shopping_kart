@@ -57,7 +57,6 @@ class Cart extends React.Component {
                             <strong>Total Payable</strong>
                         </span>
                         <span className="price-value">
-                            {console.error("origianPrice", total)}
                             <strong>&#x20b9;{total}</strong>
                         </span>
 

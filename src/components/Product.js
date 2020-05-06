@@ -10,9 +10,7 @@ class Product extends Component
     addToCart = (e) => {
  
         e.preventDefault();
- 
         this.props.addToCart(this.props.product)
- 
         this.setState({
             inCart: true
         })
@@ -39,7 +37,6 @@ class Product extends Component
                                 <a href="#" onClick={this.addToCart} className="btn btn-primary">Add to cart</a>
                             )
                         }
- 
                         <div className="price-wrap">
                            <PriceList product = {product} />
                         </div>

@@ -64,21 +64,9 @@ const sortDis = (arr, field) => {
     return 0;
   })
 }
-// const sortAsc = (arr, field) => {
 
-//   return arr.sort(function (a, b) {
-//     if (a.price[field] > b.price[field]) {
-//       return 1;
-//     }
-//     if (b.price[field] > a.price[field]) {
-//       return -1;
-//     }
-//     return 0;
-//   })
-// }
 
 const getSortedProducts = (data, value) => {
-
   const result = data.products.items.filter(item => item.price.actual <= value);
   return result;
 }

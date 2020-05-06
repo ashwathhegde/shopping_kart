@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { SORT_LOW_HIGH, SORT_HIGH_LOW, DISCOUNT } from '../store/actions/cartActions';
-import Filter from './Filter';
 class SortProduct extends Component {
     constructor(props) {
         super(props)

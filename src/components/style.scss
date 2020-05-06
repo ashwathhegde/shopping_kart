@@ -247,6 +247,7 @@ footer{
         height: auto;
         display: table;
         margin: 0px auto;
+        text-align: center;
     }
 }
 .img-block {
@@ -280,6 +281,8 @@ footer{
     .input-sm {
         width: 15px;
         text-align: center;
+        background: #fff;
+        color: #000;
     }
 }
 
@@ -290,6 +293,7 @@ footer{
     overflow: hidden;
     border: 1px solid;
     padding: 1em;
+    margin-bottom: 1em;
    
     @media screen and (max-width:777px){
         float: none;
@@ -304,6 +308,8 @@ form {
     font-weight: bold;
     text-transform: uppercase;
     font-size: 12px;
+    position: relative;
+    top: 5px;
 
 }
 .cart-price {
@@ -427,6 +433,9 @@ input{
     border-bottom: 1px solid #fff;
     width: 130px;
     color: #fff;
+    @media screen and (max-width: 777px){
+        width: 100px;
+    }
     
 }
  

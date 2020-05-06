@@ -6,7 +6,6 @@ import Search from "./Search";
 class Navbar extends Component {
     constructor(props) {
         super(props);
- 
         this.state = {
             showSearch : false
         };
