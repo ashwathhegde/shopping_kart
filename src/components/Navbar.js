@@ -23,6 +23,13 @@ class Navbar extends Component {
 
     render() {
         
+        let totalqty = 0;
+        this.props.cart.length &&  this.props.cart.map ((item, key) =>{
+             {
+                totalqty = totalqty  + item.quantity
+            }
+            
+        })
         this.props.cartUpdated();
         
         let total = 0;
@@ -45,7 +52,7 @@ class Navbar extends Component {
                             <li><NavLink to="/my-cart">
                                 {
                                     this.props.cart.length > 0 ? (
-                                        <span className="label label-info">{ this.props.cart.length }</span>
+                                        <span className="label label-info">{ totalqty }</span>
                                     ) : null
                                 }
                                 <i className="fa fa-shopping-cart" aria-hidden="true"></i></NavLink></li>

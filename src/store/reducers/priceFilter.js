@@ -16,7 +16,9 @@ const filterReducer = (state = {}, action) => {
             return {
             filterApplied: false,
             showFilter : false
-        }     
+        }   
+        
+        
         default:
             return state;
 

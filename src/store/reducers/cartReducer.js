@@ -10,31 +10,21 @@ const cartReducer = (state = initialState, action) => {
     switch (action.type) {
 
         case ADD_TO_CART:
-            cart.push(action.payload);
-            return {
-                ...state,
-                cart: cart,
-                isAdded: true
-            };
+            let checkProduct = cart.filter(item => item.product.productId === action.payload.product.productId);
+           if(checkProduct.length){
+               return (updateCart(cart, state, action))
+           } else {
+                cart.push(action.payload);
+                return {
+                    ...state,
+                    cart: cart,
+                    isAdded: true
+                };
+           }
+            
         case UPDATE_CART_QUANTITY:
-            let item = cart.find(item => item.product.productId == action.payload.productId);
-            let newCart = []
-            let keyValue;
-            item.quantity = action.payload.quantity;
-            cart.map ((item, key) =>{
-                if(item.product.productId  === action.payload.productId) {
-                     keyValue = key
-                }
-                
-            })
-            newCart = cart.slice(0)
-            newCart[keyValue] = item
+            return (updateCart(cart, state, action))
            
-            return {
-                ...state,
-                cart: newCart
-            };
-
         case REMOVE_FROM_CART:
             return {
                 ...state,
@@ -46,4 +36,34 @@ const cartReducer = (state = initialState, action) => {
     }
 };
 
+const updateCart = (cart, state, action) => {
+            let item = cart.find(item => item.product.productId === (action.payload.productId ? action.payload.productId : action.payload.product.productId));
+            let newCart = [];
+            let keyValue;
+            cart.map ((item, key) =>{
+                if(item.product.productId  === (action.payload.productId ? action.payload.productId : action.payload.product.productId)) {
+                     keyValue = key
+                }
+                
+            })
+            switch(action.payload && action.payload.value){
+                case "ADD":
+                    item.quantity = item.quantity + action.payload.quantity;
+                    break;
+                case "INC":
+                     item.quantity =  action.payload.quantity;
+                      break;
+                  default:
+                        item.quantity =  action.payload.quantity;
+                
+
+            }
+            newCart = cart.slice(0)
+            newCart[keyValue] = item
+           
+            return {
+                ...state,
+                cart: newCart
+            };
+}
 export default cartReducer;

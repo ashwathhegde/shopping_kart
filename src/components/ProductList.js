@@ -57,10 +57,11 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
+    let value = "ADD"
     return {
-
+   
         addToCart: (product) => {
-            dispatch({ type: ADD_TO_CART, payload: { product, quantity: 1 } });
+            dispatch({ type: ADD_TO_CART, payload: { product, quantity: 1, value:value } });
         },
         filterPriceList: (range) => {
             dispatch({ type: 'UPDATE_LIST', payload:{range} });

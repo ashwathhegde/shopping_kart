@@ -10,6 +10,7 @@ class Filter extends Component {
     this.state = {
       value: 10
     }
+    
   }
 
   handleChange = value => {
@@ -25,6 +26,9 @@ class Filter extends Component {
 
   render () {
     const { value } = this.state
+    // if(this.props.filter.filterApplied === false){
+    //     this.setState({value: 10})
+    // }
     return (
         
     <div className ="slider-container">    

@@ -30,13 +30,8 @@ class Product extends Component
                   
                     <div className="bottom-wrap">
  
-                        {
-                            this.state.inCart?(
-                                <span className="btn btn-success">Added to cart</span>
-                            ) : (
-                                <a href="#" onClick={this.addToCart} className="btn btn-primary">Add to cart</a>
-                            )
-                        }
+                        
+                        <a href="#" onClick={this.addToCart} className={this.state.inCart?"btn btn-primary btn-success":"btn btn-primary"}>Add to cart</a>
                         <div className="price-wrap">
                            <PriceList product = {product} />
                         </div>

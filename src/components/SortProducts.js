@@ -20,25 +20,16 @@ class SortProduct extends Component {
     filterCond = () => {
         return this.props.filter && this.props.filter.filterApplied ? this.props.products.filteredProduct : this.props.products.items
     }
-    sortAsc = (value) => {
+    sortData = (value) => {
         this.setState({active:value})
         this.setState({showMobileData:false})
-        this.props.sortAsce(this.filterCond())
-        
+        this.props.sortFilter(this.filterCond(), value)
     }
-    sortDes = (value) => {
-        this.setState({active:value})
-        this.setState({showMobileData:false})
-        this.props.sortDesc(this.filterCond())
-    }
-    sortDiscount = (value) => {
-        this.setState({active:value})
-        this.setState({showMobileData:false})
-        this.props.sortDisc(this.filterCond())
-    }
+    
     isActive = (value) =>{
         return ( (value===this.state.active) ?'active':'');
       }
+      
     render() {
         return (
             <div className="sort-wrap">
@@ -51,9 +42,9 @@ class SortProduct extends Component {
                        <div className ={this.state.showMobileData?"overlay show":"overlay"}> 
                          <div className="popup">
                                
-                        <span className ={ 'sort-btn' + " "  + this.isActive('high')} onClick={(e) => this.sortDes('high')}>Price High --- Low </span>
-                        <span className ={'sort-btn' + " " + this.isActive('low')} onClick={(e) => this.sortAsc('low')}>Price Low -- High</span>
-                        <span  className ={"sort-btn" + " "+ this.isActive('discount')} onClick={(e) => this.sortDiscount('discount')}>Discount </span>
+                        <span className ={ 'sort-btn' + " "  + this.isActive(SORT_HIGH_LOW)} onClick={(e) => this.sortData(SORT_HIGH_LOW)}>Price High --- Low </span>
+                        <span className ={'sort-btn' + " " + this.isActive(SORT_LOW_HIGH)} onClick={(e) => this.sortData(SORT_LOW_HIGH)}>Price Low -- High</span>
+                        <span  className ={"sort-btn" + " "+ this.isActive(DISCOUNT)} onClick={(e) => this.sortData(DISCOUNT)}>Discount </span>
                        </div> 
                        </div> 
                     </div>
@@ -72,14 +63,8 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = (dispatch) => {
     return {
-        sortAsce: (data) => {
-            dispatch({ type: SORT_LOW_HIGH, data });
-        },
-        sortDesc: (data) => {
-            dispatch({ type: SORT_HIGH_LOW, data });
-        },
-        sortDisc: (data) => {
-            dispatch({ type: DISCOUNT, data });
+        sortFilter: (data, value) => {
+            dispatch({ type: value, data });
         },
         showMobFilter: (data) => {
             dispatch({ type: 'SHOW_FILTER' });
