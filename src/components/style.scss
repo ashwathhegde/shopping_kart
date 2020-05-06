@@ -263,7 +263,6 @@ footer{
     .product-name {
         margin: 1em 0px 2em;
     }
-    margin-right: 5em;
     
 }
 .qty-block {
@@ -441,4 +440,19 @@ input{
  
 ::placeholder {
     color: #fff;
+}
+
+.panel-body {
+    text-align: center;
+    height: 75vh;
+    box-sizing: border-box;
+    display: table;
+    margin: 0px auto;
+    font-size: 2em;
+    p{
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+        margin: 0px auto;
+    }
 }

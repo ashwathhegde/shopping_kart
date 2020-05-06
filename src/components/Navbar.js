@@ -11,14 +11,20 @@ class Navbar extends Component {
         };
         
     }
+    
     showSearch = () =>{
         this.setState ({
             showSearch: true
         })
     }
+    resetState = () => {
+        this.props.setToInitialState();
+    }
+
     render() {
         
         this.props.cartUpdated();
+        
         let total = 0;
         this.props.cart.map(item => total += item.product.price.actual * item.quantity);
         return (
@@ -26,7 +32,9 @@ class Navbar extends Component {
             <div className="navbar-wrap">
                 <nav className="navbar">
                    <div className="navbar-header">
-                        <NavLink className="navbar-brand" to="/"><i className="fa fa-truck" aria-hidden="true"></i></NavLink>
+                        <NavLink className="navbar-brand" to="/">
+                            <i className="fa fa-truck" aria-hidden="true" onClick={this.resetState}></i>
+                        </NavLink>
                     </div>
                     <div className="navbar-right" >
                         <ul>
@@ -55,8 +63,18 @@ const mapStateToProps = (state) => {
  
     return {
         cart: state.cart.cart,
-        cartUpdated: () => { return true }
+        cartUpdated: () => { return true },
+        products: state.product.products,
+        staticData: state.product.products,
+        filter: state.filter,
+    }
+};
+const mapDispatchToProps = (dispatch) => {
+    return {
+        setToInitialState : (data) => {
+            dispatch({ type: "INIT_STATE" });
+        },
     }
 };
  
-export default connect(mapStateToProps)(Navbar);
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

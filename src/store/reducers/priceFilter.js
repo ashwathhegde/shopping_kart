@@ -11,7 +11,12 @@ const filterReducer = (state = {}, action) => {
                 filterApplied: true
             }
         case 'SHOW_FILTER':
-            return {showFilter : true}    
+            return {showFilter : true}   
+        case 'INIT_STATE':
+            return {
+            filterApplied: false,
+            showFilter : false
+        }     
         default:
             return state;
 

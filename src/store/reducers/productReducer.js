@@ -26,6 +26,8 @@ const productReducer = (state = {}, action) => {
       oldState = Object.freeze(state);
       updatedList = searchProduct(oldState, action.payload.value)
       return updatedState(state, updatedList)
+    case "INIT_STATE":
+      return state;  
     default:
       state.products = _products
       return state;
