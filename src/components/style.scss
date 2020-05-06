@@ -145,6 +145,9 @@
     padding-right: 5px;
     &.discount{
         color:green;
+        @media screen and (max-width: 777px){
+            display: block;
+        }
     }
     &.price-new{
         font-weight: bold;
